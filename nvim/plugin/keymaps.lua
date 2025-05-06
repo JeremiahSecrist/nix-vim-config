@@ -11,11 +11,20 @@ local diagnostic = vim.diagnostic
 -- Yank from current position till end of current line
 keymap.set('n', 'Y', 'y$', { silent = true, desc = '[Y]ank to end of line' })
 
+-- Yank visually selected text to system clipboard with <leader>y
+keymap.set("v", "<space>y", '"+y', { desc = "Yank to clipboard" })
+
 -- Buffer list navigation
 keymap.set('n', '[b', vim.cmd.bprevious, { silent = true, desc = 'previous [b]uffer' })
 keymap.set('n', ']b', vim.cmd.bnext, { silent = true, desc = 'next [b]uffer' })
 keymap.set('n', '[B', vim.cmd.bfirst, { silent = true, desc = 'first [B]uffer' })
 keymap.set('n', ']B', vim.cmd.blast, { silent = true, desc = 'last [B]uffer' })
+
+-- Window navigation
+vim.keymap.set('n', '<A-h>', '<C-w>h', { noremap = true, silent = true, desc = "Move to left window" })
+vim.keymap.set('n', '<A-j>', '<C-w>j', { noremap = true, silent = true, desc = "Move to window below" })
+vim.keymap.set('n', '<A-k>', '<C-w>k', { noremap = true, silent = true, desc = "Move to window above" })
+vim.keymap.set('n', '<A-l>', '<C-w>l', { noremap = true, silent = true, desc = "Move to right window" })
 
 -- Toggle the quickfix list (only opens if it is populated)
 local function toggle_qf_list()
@@ -112,7 +121,55 @@ end, { silent = true, desc = 'dec window [h]eight' })
 
 -- Close floating windows [Neovim 0.10 and above]
 keymap.set('n', '<leader>fq', function()
-  vim.cmd('fclose!')
+  vim.cmd('fclose!')-- Global variable to store previous window for proper focus restoration
+_G.last_win_before_oil = nil
+
+vim.keymap.set("n", "<leader>e", function()
+  -- Look for any existing oil buffer/window
+  local oil_bufnr = nil
+  local oil_winnr = nil
+
+  for _, win in ipairs(vim.api.nvim_list_wins()) do
+    local buf = vim.api.nvim_win_get_buf(win)
+    if vim.api.nvim_buf_get_option(buf, "filetype") == "oil" then
+      oil_bufnr = buf
+      oil_winnr = win
+      break
+    end
+  end
+
+  if oil_winnr then
+    -- Oil is already open, close it
+    vim.api.nvim_win_close(oil_winnr, true)
+
+    -- Restore focus to previous window if it still exists
+    if _G.last_win_before_oil and vim.api.nvim_win_is_valid(_G.last_win_before_oil) then
+      vim.api.nvim_set_current_win(_G.last_win_before_oil)
+    end
+    _G.last_win_before_oil = nil
+  else
+    -- Store current window before opening Oil
+    _G.last_win_before_oil = vim.api.nvim_get_current_win()
+
+    -- Calculate 10% of screen width
+    local win_width = math.floor(vim.o.columns * 0.1)
+
+    -- Create a new vertical split
+    vim.cmd(win_width .. "vsplit")
+    vim.cmd("wincmd H") -- Move split to the left
+
+    -- Open Oil in this split
+    vim.cmd("Oil")
+
+    -- Set the exact width to ensure it's 10%
+    vim.api.nvim_win_set_width(0, win_width)
+
+    -- Return focus to original window
+    if vim.api.nvim_win_is_valid(_G.last_win_before_oil) then
+      vim.api.nvim_set_current_win(_G.last_win_before_oil)
+    end
+  end
+end, { desc = "Toggle Oil file explorer (10% width)" })
 end, { silent = true, desc = '[f]loating windows: [q]uit/close all' })
 
 -- Remap Esc to switch to normal mode and Ctrl-Esc to pass Esc to terminal
@@ -133,7 +190,7 @@ keymap.set('n', '<space>tq', vim.cmd.tabclose, { desc = '[t]ab: [q]uit/close' })
 
 local severity = diagnostic.severity
 
-keymap.set('n', '<space>e', function()
+keymap.set('n', '<space>le', function()
   local _, winid = diagnostic.open_float(nil, { scope = 'line' })
   if not winid then
     vim.notify('no diagnostics found', vim.log.levels.INFO)
