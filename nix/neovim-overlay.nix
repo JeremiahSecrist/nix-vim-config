@@ -31,15 +31,18 @@ let
   #   ...
   # }
   all-plugins = with pkgs.vimPlugins; [
+    # Debugger tool
     nvim-dap-vscode-js
     nvim-dap
     nvim-dap-ui
     nvim-dap-virtual-text
+    # Theme
     catppuccin-nvim
     # plugins from nixpkgs go in here.
     # https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=vimPlugins
     nvim-treesitter.withAllGrammars
     luasnip # snippets | https://github.com/l3mon4d3/luasnip/
+    avante-nvim
     # nvim-cmp (autocompletion) and extensions
     nvim-cmp # https://github.com/hrsh7th/nvim-cmp
     snacks-nvim
@@ -62,8 +65,11 @@ let
     # telescope and extensions
     telescope-nvim # https://github.com/nvim-telescope/telescope.nvim/
     telescope-fzy-native-nvim # https://github.com/nvim-telescope/telescope-fzy-native.nvim
+    # May seem redundant but i like them for different uses
     oil-nvim
+    nvim-tree-lua
     toggleterm-nvim
+    lazygit-nvim
     # telescope-smart-history-nvim # https://github.com/nvim-telescope/telescope-smart-history.nvim
     # ^ telescope and extensions
     # UI
