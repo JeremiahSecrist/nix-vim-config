@@ -43,3 +43,9 @@ end
 -- Set up keybinding for lazygit
 vim.keymap.set('n', '<leader>gg', lazygit_toggle, { desc = 'Open LazyGit' })
 
+-- Example config for init.lua
+require("nvim-tree").setup()
+
+-- Optional keymap to toggle it
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+
