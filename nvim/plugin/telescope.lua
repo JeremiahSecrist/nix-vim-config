@@ -83,6 +83,8 @@ vim.keymap.set(
   grep_string_current_file_type,
   { desc = '[t]elescope grep current string [*] in current filetype' }
 )
+
+
 vim.keymap.set('n', '<leader>*', builtin.grep_string, { desc = '[telescope] grep current string [*]' })
 vim.keymap.set('n', '<leader>tg', project_files, { desc = '[t]elescope project files [g]' })
 vim.keymap.set('n', '<leader>tc', builtin.quickfix, { desc = '[t]elescope quickfix list [c]' })
@@ -103,6 +105,7 @@ vim.keymap.set(
   builtin.lsp_dynamic_workspace_symbols,
   { desc = '[t]elescope lsp dynamic w[o]rkspace symbols' }
 )
+vim.keymap.set('n', '<leader>tu', builtin.lsp_references, { desc = '[t]elescope LSP [U]sage' })
 
 telescope.setup {
   defaults = {
