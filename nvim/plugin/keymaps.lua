@@ -14,6 +14,9 @@ keymap.set('n', '<A-j>', '<C-w>j', { noremap = true, silent = true })
 keymap.set('n', '<A-k>', '<C-w>k', { noremap = true, silent = true })
 keymap.set('n', '<A-l>', '<C-w>l', { noremap = true, silent = true })
 
+-- oil bind to -
+keymap.set('n', '-', '<CMD>Oil<CR>', { silent = true, desc = '[Y]ank to end of line' })
+
 -- Lazygit
 keymap.set('n', '<Leader>gg', '<CMD>LazyGit<CR>', { silent = true, desc = '[Y]ank to end of line' })
 
