@@ -109,7 +109,7 @@ telescope.setup {
     path_display = {
       'truncate',
     },
-    layout_strategy = 'vertical',
+    layout_strategy = 'flex',
     layout_config = layout_config,
     mappings = {
       i = {

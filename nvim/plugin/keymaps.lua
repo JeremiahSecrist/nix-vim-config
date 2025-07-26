@@ -8,6 +8,32 @@ local fn = vim.fn
 local keymap = vim.keymap
 local diagnostic = vim.diagnostic
 
+-- window splits navigations
+keymap.set('n', '<A-h>', '<C-w>h', { noremap = true, silent = true })
+keymap.set('n', '<A-j>', '<C-w>j', { noremap = true, silent = true })
+keymap.set('n', '<A-k>', '<C-w>k', { noremap = true, silent = true })
+keymap.set('n', '<A-l>', '<C-w>l', { noremap = true, silent = true })
+
+-- Lazygit
+keymap.set('n', '<Leader>gg', '<CMD>LazyGit<CR>', { silent = true, desc = '[Y]ank to end of line' })
+
+-- Flash keymaps:
+-- s: Flash (n, x, o)
+-- S: Flash Treesitter (n, x, o)
+-- r: Remote Flash (o)
+-- R: Treesitter Search (o, x)
+-- <C-s>: Toggle Flash Search (c)
+
+keymap.set({ "n", "x", "o" }, "s", function() require("flash").jump() end, { desc = "Flash" })
+keymap.set({ "n", "x", "o" }, "S", function() require("flash").treesitter() end, { desc = "Flash Treesitter" })
+keymap.set("o", "r", function() require("flash").remote() end, { desc = "Remote Flash" })
+keymap.set({ "o", "x" }, "R", function() require("flash").treesitter_search() end, { desc = "Treesitter Search" })
+keymap.set("c", "<C-s>", function() require("flash").toggle() end, { desc = "Toggle Flash Search" })
+
+
+-- ww save command
+keymap.set('n', '<Leader>ww', '<CMD>w<CR>', { silent = true, desc = '[Y]ank to end of line' })
+
 -- Yank from current position till end of current line
 keymap.set('n', 'Y', 'y$', { silent = true, desc = '[Y]ank to end of line' })
 
