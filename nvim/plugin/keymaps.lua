@@ -8,6 +8,10 @@ local fn = vim.fn
 local keymap = vim.keymap
 local diagnostic = vim.diagnostic
 
+-- search nix docs
+-- require('telescope').extensions.manix.manix()
+keymap.set('n', '<Leader>tN', '<CMD>Telescope manix<CR>', { silent = true, desc='search nix docs' })
+
 -- window splits navigations
 keymap.set('n', '<A-h>', '<C-w>h', { noremap = true, silent = true })
 keymap.set('n', '<A-j>', '<C-w>j', { noremap = true, silent = true })

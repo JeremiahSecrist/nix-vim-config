@@ -33,6 +33,7 @@ let
   all-plugins = with pkgs.vimPlugins; [
     # plugins from nixpkgs go in here.
     # https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=vimPlugins
+    telescope-manix
     lazygit-nvim
     flash-nvim
     kanagawa-nvim
@@ -94,6 +95,7 @@ let
 
   extraPackages = with pkgs; [
     # language servers, etc.
+    manix
     lua-language-server
     nil # nix LSP
   ];
