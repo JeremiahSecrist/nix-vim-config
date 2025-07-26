@@ -95,6 +95,7 @@ let
 
   extraPackages = with pkgs; [
     # language servers, etc.
+    lazygit
     manix
     lua-language-server
     nil # nix LSP
