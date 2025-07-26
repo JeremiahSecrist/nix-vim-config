@@ -19,10 +19,10 @@ keymap.set('n', '<A-k>', '<C-w>k', { noremap = true, silent = true })
 keymap.set('n', '<A-l>', '<C-w>l', { noremap = true, silent = true })
 
 -- oil bind to -
-keymap.set('n', '-', '<CMD>Oil<CR>', { silent = true, desc = '[Y]ank to end of line' })
+keymap.set('n', '-', '<CMD>Oil<CR>', { silent = true, desc = 'Oil-nvim'})
 
 -- Lazygit
-keymap.set('n', '<Leader>gg', '<CMD>LazyGit<CR>', { silent = true, desc = '[Y]ank to end of line' })
+keymap.set('n', '<Leader>gg', '<CMD>LazyGit<CR>', { silent = true, desc = 'Open Lazygit' })
 
 -- Flash keymaps:
 -- s: Flash (n, x, o)
@@ -39,7 +39,7 @@ keymap.set("c", "<C-s>", function() require("flash").toggle() end, { desc = "Tog
 
 
 -- ww save command
-keymap.set('n', '<Leader>ww', '<CMD>w<CR>', { silent = true, desc = '[Y]ank to end of line' })
+keymap.set('n', '<Leader>ww', '<CMD>w<CR>', { silent = true, desc = 'save file' })
 
 -- Yank from current position till end of current line
 keymap.set('n', 'Y', 'y$', { silent = true, desc = '[Y]ank to end of line' })
