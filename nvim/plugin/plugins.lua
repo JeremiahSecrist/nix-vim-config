@@ -15,3 +15,14 @@ telescope.setup {
   -- opts...
 }
 telescope.load_extension('manix')
+require("toggleterm").setup({
+  open_mapping = [[<C-\>]],   -- Ctrl-\ toggles terminal globally
+  direction = "float",
+  start_in_insert = true,     -- terminal opens in insert mode
+  shade_terminals = true,
+  float_opts = {
+    border = "curved",
+    width = 100,
+    height = 30,
+  },
+})

@@ -8,9 +8,13 @@ local fn = vim.fn
 local keymap = vim.keymap
 local diagnostic = vim.diagnostic
 
+--  keymap.set("n", "<C-\\>", "<Cmd>ToggleTerm direction=float<CR>", {
+--   desc = "Toggle floating terminal"
+-- })
+-- keymap.set("t", "<C-\\>", "<Nop>", { desc = "Disable Ctrl-\\ in terminal mode" })
 -- search nix docs
 -- require('telescope').extensions.manix.manix()
-keymap.set('n', '<Leader>tN', '<CMD>Telescope manix<CR>', { silent = true, desc='search nix docs' })
+keymap.set('n', '<Leader>tN', '<CMD>Telescope manix<CR>', { silent = true, desc = 'search nix docs' })
 
 -- window splits navigations
 keymap.set('n', '<A-h>', '<C-w>h', { noremap = true, silent = true })
@@ -19,7 +23,7 @@ keymap.set('n', '<A-k>', '<C-w>k', { noremap = true, silent = true })
 keymap.set('n', '<A-l>', '<C-w>l', { noremap = true, silent = true })
 
 -- oil bind to -
-keymap.set('n', '-', '<CMD>Oil<CR>', { silent = true, desc = 'Oil-nvim'})
+keymap.set('n', '-', '<CMD>Oil<CR>', { silent = true, desc = 'Oil-nvim' })
 
 -- Lazygit
 keymap.set('n', '<Leader>gg', '<CMD>LazyGit<CR>', { silent = true, desc = 'Open Lazygit' })
