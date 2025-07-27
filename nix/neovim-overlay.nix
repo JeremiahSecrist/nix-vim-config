@@ -33,6 +33,7 @@ let
   all-plugins = with pkgs.vimPlugins; [
     # plugins from nixpkgs go in here.
     # https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=vimPlugins
+    statix
     nvim-autopairs
     todo-comments-nvim
     toggleterm-nvim
@@ -102,6 +103,7 @@ let
     ripgrep
     lazygit
     manix
+    statix
     lua-language-server
     nil # nix LSP
   ];

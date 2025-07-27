@@ -69,7 +69,7 @@ with lib;
       inherit extraPython3Packages withPython3 withRuby withNodeJs viAlias vimAlias;
       plugins = normalizedPlugins;
     };
-
+    # mk
     # This uses the ignoreConfigRegexes list to filter
     # the nvim directory
     nvimRtpSrc = let
@@ -199,7 +199,7 @@ with lib;
           + extraMakeWrapperLuaCArgs
           + " "
           + extraMakeWrapperLuaArgs;
-        wrapRc = wrapRc;
+        inherit wrapRc;
       });
 
     isCustomAppName = appName != null && appName != "nvim";
