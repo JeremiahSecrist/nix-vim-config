@@ -26,3 +26,4 @@ require("toggleterm").setup({
     height = 30,
   },
 })
+require('nvim-autopairs').setup()
