@@ -27,3 +27,4 @@ require("toggleterm").setup({
   },
 })
 require('nvim-autopairs').setup()
+require('mini.ai').setup()
