@@ -7,10 +7,9 @@ let
 
   # Use this to create a plugin from a flake input
   mkNvimPlugin =
-    src: pname:
+    {src, pname, version ? src.lastModifiedDate}:
     pkgs.vimUtils.buildVimPlugin {
-      inherit pname src;
-      version = src.lastModifiedDate;
+      inherit pname src version;
     };
 
   # Make sure we use the pinned nixpkgs instance for wrapNeovimUnstable,
