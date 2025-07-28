@@ -38,7 +38,6 @@ let
     todo-comments-nvim
     toggleterm-nvim
     telescope-manix
-    lazygit-nvim
     flash-nvim
     kanagawa-nvim
     oil-nvim
