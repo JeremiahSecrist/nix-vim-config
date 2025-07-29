@@ -91,7 +91,13 @@ require('treesitter-context').setup {
 }
 
 require('ts_context_commentstring').setup()
-
+require("lspconfig")["tinymist"].setup {
+        settings = {
+                formatterMode = "typstyle",
+                exportPdf = "onType",
+                semanticTokens = "disable"
+        }
+}
 -- Tree-sitter based folding
 -- vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'

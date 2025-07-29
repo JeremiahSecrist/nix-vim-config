@@ -29,3 +29,4 @@ require("toggleterm").setup({
 require('nvim-autopairs').setup()
 require('mini.ai').setup()
 require("bufferline").setup()
+require('typst-preview').setup()

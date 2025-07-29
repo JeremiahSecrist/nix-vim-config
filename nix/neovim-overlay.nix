@@ -32,6 +32,7 @@ let
   all-plugins = with pkgs.vimPlugins; [
     # plugins from nixpkgs go in here.
     # https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=vimPlugins
+    typst-preview-nvim
     bufferline-nvim
     mini-ai
     statix
@@ -100,6 +101,7 @@ let
 
   extraPackages = with pkgs; [
     # language servers, etc.
+    tinymist
     ripgrep
     lazygit
     manix
