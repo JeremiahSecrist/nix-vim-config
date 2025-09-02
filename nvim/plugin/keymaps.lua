@@ -7,7 +7,16 @@ local api = vim.api
 local fn = vim.fn
 local keymap = vim.keymap
 local diagnostic = vim.diagnostic
+-- quick delete
+keymap.set('v', 'd', '"_d', { noremap = true, silent = true })
+-- In your init.lua or a keymaps.lua file
+keymap.set('n', '<leader>/', function()
+  require('Comment.api').toggle.linewise.current()
+end, { noremap = true, silent = true })
 
+keymap.set('v', '<leader>/', function()
+  require('Comment.api').toggle.linewise(vim.fn.visualmode())
+end, { noremap = true, silent = true })
 --  keymap.set("n", "<C-\\>", "<Cmd>ToggleTerm direction=float<CR>", {
 --   desc = "Toggle floating terminal"
 -- })

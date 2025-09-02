@@ -46,3 +46,4 @@ require("tiny-inline-diagnostic").setup({
   },
   -- ...
 })
+require('Comment').setup()
