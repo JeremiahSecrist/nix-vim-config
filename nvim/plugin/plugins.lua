@@ -30,3 +30,19 @@ require('nvim-autopairs').setup()
 require('mini.ai').setup()
 require("bufferline").setup()
 require('typst-preview').setup()
+require("tiny-inline-diagnostic").setup({
+  -- ...
+  signs = {
+    left = "",
+    right = "",
+    diag = "●",
+    arrow = "    ",
+    up_arrow = "    ",
+    vertical = " │",
+    vertical_end = " └",
+  },
+  blend = {
+    factor = 0.22,
+  },
+  -- ...
+})
