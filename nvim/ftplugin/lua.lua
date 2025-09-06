@@ -53,11 +53,3 @@ vim.lsp.start {
     },
   },
 }
--- gleam
-vim.lsp.start {
-  name = 'gleam',
-  cmd = { 'gleam', 'lsp' },
-  root_dir = vim.fs.dirname(vim.fs.find({ 'gleam.toml', '.git' }, { upward = true })[1]),
-  capabilities = require('user.lsp').make_client_capabilities(),
-  settings = {},
-}
