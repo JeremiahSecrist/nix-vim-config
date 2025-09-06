@@ -9,6 +9,8 @@ local keymap = vim.keymap
 local diagnostic = vim.diagnostic
 local harpoon = require("harpoon")
 
+keymap.set({ "v", "n" }, "<Leader>\\", require("actions-preview").code_actions)
+-- Harpoon
 keymap.set("n", "<leader>h", function() harpoon:list():add() end)
 keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
@@ -21,8 +23,6 @@ keymap.set("n", "<C-4>", function() harpoon:list():select(4) end)
 vim.keymap.set("n", "<C-H>", function() harpoon:list():prev() end)
 vim.keymap.set("n", "<C-L>", function() harpoon:list():next() end)
 
--- quick delete
-keymap.set("v", "d", '"_d', { noremap = true, silent = true, expr = false })
 -- In your init.lua or a keymaps.lua file
 keymap.set('n', '<leader>/', function()
   require('Comment.api').toggle.linewise.current()

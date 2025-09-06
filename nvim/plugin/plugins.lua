@@ -49,3 +49,4 @@ require("tiny-inline-diagnostic").setup({
 require('Comment').setup()
 require('harpoon').setup()
 require("lspconfig").gleam.setup({})
+require("actions-preview").setup()
