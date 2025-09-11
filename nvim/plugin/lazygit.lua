@@ -1,6 +1,4 @@
 local Terminal = require("toggleterm.terminal").Terminal
-
--- Create a new terminal for Lazygit
 local lazygit = Terminal:new({
   cmd = "lazygit",
   hidden = true,
@@ -9,22 +7,19 @@ local lazygit = Terminal:new({
     border = "double",
   },
   on_open = function(term)
-    -- Start in insert mode when the terminal opens
+    -- Start in insert mode so terminal input goes directly to Lazygit
     vim.cmd("startinsert!")
-
-    -- Disable <Esc> in terminal mode to prevent exiting insert mode
-    vim.api.nvim_buf_set_keymap(term.bufnr, 't', '<Esc>', '', { noremap = true, silent = true })
-
-    -- Safely remove any existing <C-l> mapping in terminal mode
-    pcall(vim.api.nvim_buf_del_keymap, term.bufnr, 't', '<C-l>')
+    -- Forward Escape key to Lazygit instead of using it to exit terminal mode
+    vim.keymap.set("t", "<Esc>", "<Esc>", { buffer = term.bufnr, silent = true })
+    -- Optionally, map <C-q> to close the terminal without interfering with Lazygit
+    vim.keymap.set("t", "<C-q>", function()
+      vim.cmd("close")
+    end, { buffer = term.bufnr, silent = true })
   end,
 })
 
--- Toggle function for Lazygit
 function Lazygit_toggle()
   lazygit:toggle()
 end
 
--- Keymap to toggle Lazygit with <leader>gg
-vim.keymap.set("n", "<leader>gg", "<cmd>lua Lazygit_toggle()<CR>", { noremap = true, silent = true })
-
+vim.keymap.set("n", "<leader>gg", Lazygit_toggle, { noremap = true, silent = true })
