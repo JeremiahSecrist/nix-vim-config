@@ -32,6 +32,15 @@ function ForceCloseBuffer()
   end
 end
 
-vim.api.nvim_create_user_command("BQ", ForceCloseBuffer, {})
-vim.api.nvim_set_keymap('n', '<leader>q', ':lua ForceCloseBuffer()<CR>', { noremap = true, silent = true })
+-- Create a user command BQ with a description
+vim.api.nvim_create_user_command("BQ", ForceCloseBuffer, {
+  desc = "Force close the current buffer and switch to last accessed buffer"
+})
+
+-- Map <leader>q to ForceCloseBuffer with a description
+vim.api.nvim_set_keymap('n', '<leader>q', ':lua ForceCloseBuffer()<CR>', {
+  noremap = true,
+  silent = true,
+  desc = "Force close the current buffer and switch to last accessed buffer"
+})
 
