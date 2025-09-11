@@ -8,12 +8,13 @@ local fn = vim.fn
 local keymap = vim.keymap
 local diagnostic = vim.diagnostic
 local harpoon = require("harpoon")
-
+-- Lua config
+keymap.set('v', 'd', 'd', { noremap = true, buffer = true })
 -- Go to previous buffer
-vim.api.nvim_set_keymap('n', '<leader>[', ':bprevious<CR>', { noremap = true, silent = true })
+keymap.set('n', '<leader>[', ':bprevious<CR>', { noremap = true, silent = true })
 
 -- Go to next buffer
-vim.api.nvim_set_keymap('n', '<leader>]', ':bnext<CR>', { noremap = true, silent = true })
+keymap.set('n', '<leader>]', ':bnext<CR>', { noremap = true, silent = true })
 
 keymap.set({ "v", "n" }, "<Leader>\\", require("actions-preview").code_actions)
 -- Harpoon
