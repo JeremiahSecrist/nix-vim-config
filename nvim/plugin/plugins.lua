@@ -13,18 +13,6 @@ require("oil").setup({
   -- view_options = {
     -- show_hidden = true,
   -- },
-  keymaps = {
-    ["<CR>"] = function()
-      local actions = require("oil.actions")
-      actions.select.callback()
-      actions.refresh.callback()
-    end,
-    ["-"] = function()
-      local actions = require("oil.actions")
-      actions.parent.callback()
-      actions.refresh.callback()
-    end,
-  },
 })
 require('flash').setup()
 telescope.setup {
