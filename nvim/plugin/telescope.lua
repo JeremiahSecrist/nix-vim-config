@@ -60,11 +60,15 @@ local function live_grep_current_file_type()
 end
 
 --- Like live_grep, but fuzzy (and slower)
+--- Like live_grep, but fuzzy (and slower) - searches content only, not filenames
 local function fuzzy_grep(opts)
-  opts = vim.tbl_extend('error', opts or {}, { search = '', prompt_title = 'Fuzzy grep' })
-  builtin.grep_string(opts)
+  opts = vim.tbl_extend('error', opts or {}, {
+    search = '',
+    prompt_title = 'Fuzzy grep (content only)',
+    only_sort_text = true  -- This prevents filename matching in telescope's fuzzy finder
+  })
+  builtin.live_grep(opts)
 end
-
 local function fuzzy_grep_current_file_type()
   grep_current_file_type(fuzzy_grep)
 end
