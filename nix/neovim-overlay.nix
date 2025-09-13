@@ -66,7 +66,6 @@ let
     neogit # https://github.com/TimUntersberger/neogit/
     gitsigns-nvim # https://github.com/lewis6991/gitsigns.nvim/
     todo-comments-nvim
-    vim-fugitive # https://github.com/tpope/vim-fugitive/
     # ^ git integration plugins
     # telescope and extensions
     telescope-nvim # https://github.com/nvim-telescope/telescope.nvim/
@@ -110,6 +109,7 @@ let
     lazygit
     manix
     statix
+    gleam
     lua-language-server
     nil # nix LSP
   ];
