@@ -13,6 +13,8 @@ local harpoon = require("harpoon")
 keymap.set("x", "<", "<gv", { noremap = true, silent = true })
 keymap.set("x", ">", ">gv", { noremap = true, silent = true })
 
+-- remove all views minus active:
+vim.keymap.set("n", "<leader>o", "<cmd>only<CR>", { noremap = true, silent = true })
 
 keymap.set('v', 'd', 'd', { noremap = true, buffer = true })
 -- Go to previous buffer
