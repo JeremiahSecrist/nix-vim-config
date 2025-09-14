@@ -8,7 +8,12 @@ local fn = vim.fn
 local keymap = vim.keymap
 local diagnostic = vim.diagnostic
 local harpoon = require("harpoon")
--- Lua config
+
+-- keep visual selection after indenting
+keymap.set("x", "<", "<gv", { noremap = true, silent = true })
+keymap.set("x", ">", ">gv", { noremap = true, silent = true })
+
+
 keymap.set('v', 'd', 'd', { noremap = true, buffer = true })
 -- Go to previous buffer
 keymap.set('n', '<leader>[', ':bprevious<CR>', { noremap = true, silent = true })
