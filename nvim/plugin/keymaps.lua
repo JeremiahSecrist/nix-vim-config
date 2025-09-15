@@ -25,10 +25,10 @@ vim.keymap.set("n", "<leader>o", "<cmd>only<CR>", { noremap = true, silent = tru
 
 keymap.set('v', 'd', 'd', { noremap = true, buffer = true })
 -- Go to previous buffer
-keymap.set('n', '<leader>[', ':bprevious<CR>', { noremap = true, silent = true })
+keymap.set('n', '<M-[>', ':bprevious<CR>', { noremap = true, silent = true })
 
 -- Go to next buffer
-keymap.set('n', '<leader>]', ':bnext<CR>', { noremap = true, silent = true })
+keymap.set('n', '<M-]>', ':bnext<CR>', { noremap = true, silent = true })
 
 keymap.set({ "v", "n" }, "<Leader>\\", require("actions-preview").code_actions)
 -- Harpoon
