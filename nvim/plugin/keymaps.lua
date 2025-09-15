@@ -8,6 +8,13 @@ local fn = vim.fn
 local keymap = vim.keymap
 local diagnostic = vim.diagnostic
 local harpoon = require("harpoon")
+-- Copy (yank) to system clipboard with Ctrl+Y
+vim.keymap.set("n", "<C-y>", '"+y')
+vim.keymap.set("v", "<C-y>", '"+y')
+
+-- Paste from system clipboard with Ctrl+P
+vim.keymap.set("n", "<C-p>", '"+p')
+vim.keymap.set("v", "<C-p>", '"+p')
 
 -- keep visual selection after indenting
 keymap.set("x", "<", "<gv", { noremap = true, silent = true })
