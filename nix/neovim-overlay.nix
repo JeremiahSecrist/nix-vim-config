@@ -112,6 +112,8 @@ let
     manix
     statix
     gleam
+    nodePackages.typescript-language-server
+    typescript
     lua-language-server
     nil # nix LSP
   ];
