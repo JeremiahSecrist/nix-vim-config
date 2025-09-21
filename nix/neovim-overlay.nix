@@ -41,7 +41,7 @@ let
     typst-preview-nvim
     bufferline-nvim
     mini-ai
-    statix
+    # statix
     nvim-autopairs
     todo-comments-nvim
     toggleterm-nvim
