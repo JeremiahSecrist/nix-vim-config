@@ -109,13 +109,13 @@ let
   ];
 
   extraPackages = with pkgs; [
-     vscode-js-debug   # language servers, etc.
+    vscode-js-debug   # language servers, etc.
     tinymist
     ripgrep
     lazygit
     manix
-    statix
     gleam
+    nodejs_20
     nodePackages.typescript-language-server
     typescript
     lua-language-server
