@@ -32,7 +32,11 @@ let
   all-plugins = with pkgs.vimPlugins; [
     # plugins from nixpkgs go in here.
     # https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=vimPlugins
-    nvim-ufo
+    nvim-dap              # <- This is missing and required!
+    nvim-dap-ui
+    nvim-dap-vscode-js
+    nvim-dap-virtual-text
+    nvim-ufo # for nice collapse behavior
     promise-async
     actions-preview-nvim
     harpoon2
@@ -105,7 +109,7 @@ let
   ];
 
   extraPackages = with pkgs; [
-    # language servers, etc.
+     vscode-js-debug   # language servers, etc.
     tinymist
     ripgrep
     lazygit
