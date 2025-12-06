@@ -45,14 +45,9 @@ keymap.set("n", "<C-4>", function() harpoon:list():select(4) end)
 vim.keymap.set("n", "<C-H>", function() harpoon:list():prev() end)
 vim.keymap.set("n", "<C-L>", function() harpoon:list():next() end)
 
--- In your init.lua or a keymaps.lua file
-keymap.set('n', '<leader>/', function()
-  require('Comment.api').toggle.linewise.current()
-end, { noremap = true, silent = true })
-
-keymap.set('v', '<leader>/', function()
-  require('Comment.api').toggle.linewise(vim.fn.visualmode())
-end, { noremap = true, silent = true })
+-- Use native Neovim commenting enhanced by ts-comments.nvim
+keymap.set('n', '<leader>/', 'gcc', { remap = true, desc = 'toggle comment line' })
+keymap.set('v', '<leader>/', 'gc', { remap = true, desc = 'toggle comment lines' })
 --  keymap.set("n", "<C-\\>", "<Cmd>ToggleTerm direction=float<CR>", {
 --   desc = "Toggle floating terminal"
 -- })

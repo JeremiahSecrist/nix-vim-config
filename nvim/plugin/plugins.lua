@@ -50,6 +50,6 @@ require("tiny-inline-diagnostic").setup({
   },
   -- ...
 })
-require('Comment').setup()
+require('ts-comments').setup()
 require('harpoon').setup()
 require("actions-preview").setup()
