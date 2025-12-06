@@ -96,7 +96,8 @@ require("lspconfig")["tinymist"].setup {
                 formatterMode = "typstyle",
                 exportPdf = "onType",
                 semanticTokens = "disable"
-        }
+        },
+        auto_archive = false, -- Disable autoArchive prompt
 }
 -- Tree-sitter based folding
 -- vim.opt.foldmethod = 'expr'
