@@ -90,14 +90,14 @@ require('treesitter-context').setup {
 }
 
 
-require("lspconfig")["tinymist"].setup {
+vim.lsp.config("tinymist", {
         settings = {
                 formatterMode = "typstyle",
                 exportPdf = "onType",
                 semanticTokens = "disable"
         },
         auto_archive = false, -- Disable autoArchive prompt
-}
+})
 -- Tree-sitter based folding
 -- vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
