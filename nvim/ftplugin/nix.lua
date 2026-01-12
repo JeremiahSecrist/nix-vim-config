@@ -10,14 +10,20 @@ local root_files = {
   '.git',
 }
 
-vim.lsp.start {
+local root = vim.fs.find(root_files, { upward = true })[1]
+if root then
+  root = vim.fs.dirname(root)
+end
+
+vim.lsp.start({
   name = 'nil_ls',
   cmd = { 'nil' },
-  root_dir = vim.fs.dirname(vim.fs.find(root_files, { upward = true })[1]),
+  root_dir = root or vim.loop.cwd(), -- ← important fallback
   capabilities = require('user.lsp').make_client_capabilities(),
   settings = {
-    ['nil'] = {
-      autoArchive = false, -- Disable autoArchive prompt
+    ["nil"] = {
+      autoArchive = true,
     },
   },
-}
+})
+
