@@ -115,7 +115,6 @@ let
     biome
     lazygit
     manix
-    gleam
     nodejs_20
     nodePackages.typescript-language-server
     typescript
