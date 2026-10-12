@@ -32,6 +32,7 @@ let
   all-plugins = with pkgs.vimPlugins; [
     # plugins from nixpkgs go in here.
     # https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=vimPlugins
+    nvim-lspconfig # LSP configs | https://github.com/neovim/nvim-lspconfig
     formatter-nvim
     nvim-dap              # <- This is missing and required!
     nvim-dap-ui
@@ -120,6 +121,7 @@ let
     typescript
     lua-language-server
     nil # nix LSP
+    nixd # nix LSP
   ];
 in
 {

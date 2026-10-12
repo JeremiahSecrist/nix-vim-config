@@ -166,6 +166,10 @@ with lib;
       # Add external packages to the PATH
       ++ (optional (externalPackages != [])
         ''--prefix PATH : "${makeBinPath externalPackages}"'')
+      # Expose the bundled bin dirs so the config can prefer system/devshell
+      # binaries over the nix-wrapped ones (see lua/user/lsp.lua system_bin)
+      ++ (optional (externalPackages != [])
+        ''--set NVIM_BUNDLED_BINS "${makeBinPath externalPackages}"'')
       # Set the LIBSQLITE_CLIB_PATH if sqlite is enabled
       ++ (optional withSqlite
         ''--set LIBSQLITE_CLIB_PATH "${sqliteLibPath}"'')
