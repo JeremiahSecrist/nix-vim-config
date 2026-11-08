@@ -121,6 +121,8 @@ local candidates = {
   pyright = { bin = 'pyright-langserver' },
   basedpyright = { bin = 'basedpyright-langserver' },
   clangd = { bin = 'clangd' },
+  -- The language server is the `gleam lsp` subcommand, not a separate binary.
+  gleam = { bin = 'gleam', args = { 'lsp' } },
   bashls = { bin = 'bash-language-server' },
   marksman = { bin = 'marksman' },
   dockerls = { bin = 'docker-langserver' },
