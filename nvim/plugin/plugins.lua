@@ -10,9 +10,16 @@ local telescope = require('telescope')
 require("kanagawa").load("wave")
 require('nvim-surround').setup()
 require("oil").setup({
-  -- view_options = {
-    -- show_hidden = true,
-  -- },
+    columns = {
+        "icon",
+        "permissions",
+        "size",
+        "mtime",
+    },
+
+    view_options = {
+        show_hidden = true,
+    },
 })
 require('flash').setup()
 telescope.setup {
