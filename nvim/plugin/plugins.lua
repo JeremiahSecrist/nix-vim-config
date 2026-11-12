@@ -14,7 +14,6 @@ require("oil").setup({
         "icon",
         "permissions",
         "size",
-        "mtime",
     },
 
     view_options = {
